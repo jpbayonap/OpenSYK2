@@ -11,7 +11,7 @@ from multiprocessing import Pool
 ############################################################
 ############################################################
 
-%run OpenSYK_functions.ipynb
+from OpenSYK_functions import *
 
 
 '''

@@ -11,7 +11,7 @@ import pickle
 from itertools import combinations
 
 
-%run OpenSYK_functions.ipynb
+from OpenSYK_functions import *
 
 ####################################################################
 ####################################################################
@@ -491,7 +491,7 @@ for k in range(len_k):
     plt.savefig(name_lg)
     plt.close(fig)
     
-    
+
     
     
 
