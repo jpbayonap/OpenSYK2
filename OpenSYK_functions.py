@@ -11,9 +11,10 @@ from scipy import integrate
 from mpmath import *
 
 ### Parameters ###
-P = {"w": [1e-1,1,1e1],"gamma/w":[1,1e1,1e2], "w/g": np.array([5e-2, 1e-1, 5e-1, 1, 5, 1e1, 5e1, 1e2, 5e2]),\
+
+P = {"w": [1e-1,1,1e1],"gamma/w":[1,1e1,1e2], "w/g": np.array([1e-1, 2e-1, 1, 2, 1e1]),\
      "N":[10,4,2], \
-     "gamma/beta" : np.array([1e-6, 1e-4, 1e-3,1e-2,1e-1, 1, 1e1,1e2,1e3]),\
+     "gamma/beta" : np.array([1e-4, 1e-3, 1e-2, 1e-1, 1, 1e1]),\
      "AverageNumber":[350,500]}
 
 len_k= len(P["w/g"])
@@ -85,7 +86,7 @@ class OpenSYK():
 
   ### Lamb shift ###
   def LambS(self,arg, step):
-    threshold = 4e-7
+    threshold = 5e-7
     Sp = lambda x : (1+np.tanh(x+arg))/x -(1+np.tanh(-x+arg))/x
     Sm = lambda x : (1-np.tanh(x+arg))/x -(1-np.tanh(-x+arg))/x
     
@@ -282,6 +283,14 @@ class OpenSYK():
     return L_RWA, L_RWAS, L_G, D_op, epsilon, random_c, H_d
     
     
+
+ # Generate an specific model
+
+def create_Model(a_0,a_1,a_2,a_3,a_4):
+    
+  return OpenSYK(P["w"][a_0], P["gamma/w"][a_1], P["w/g"][a_2],\
+                 P["gamma/beta"][a_3], P["N"][a_4],  1 )
+
 #############################################################################
 
 #############################################################################
@@ -401,6 +410,29 @@ def P_infty(Beta,eps):
 
 #############################################################################
 
+## Parallelization
+
+def batch_data(iteration, *args):
+
+    model,step,op,time= args
+
+    #generate the system Liouvilian and Gibbs state
+    L, LS, LG, D, epsilon, random_c, H_d = model.Liouvilian(step)
+    return [L, H_d, D, epsilon]
+    
+def eig_L(l): 
+  return l.eigenenergies()    
+
+
+#############################################################################
+
+#############################################################################
+
+
+
+
+
+
 # Density matrix histogram
 
 def matrix_histogram_complex(M, xlabels, ylabels, title, size, limits=None, ax=None):
@@ -489,6 +521,7 @@ def matrix_histogram_complex(M, xlabels, ylabels, title, size, limits=None, ax=N
     colors = cmap(norm(np.angle(Mvec)))  
 
     if ax == None:
+
         fig = plt.figure(figsize=size)
         ax = Axes3D(fig, azim=-35, elev=35)
 
@@ -518,5 +551,4 @@ def matrix_histogram_complex(M, xlabels, ylabels, title, size, limits=None, ax=N
     cb.set_ticklabels((r'$-\pi$',r'$-\pi/2$',r'$0$',r'$\pi/2$',r'$\pi$'))
     cb.set_label('arg',size=22)
     cb.ax.tick_params(labelsize=22) 
-
     return ax
