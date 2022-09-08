@@ -65,10 +65,13 @@ for k in range(len_k):
 
             #Trace distance data
             A= [r- gibbs for r in rhot]
-            dt=[a.norm() for a in A]  
+            dt=[a.norm() for a in A]
+            # Liouvillian eigenvalues (takes longer than density matrix evolution)
+            egL= eig_L(l)
+              
             
 
-            return [purity,entropy,counts_d, dt]
+            return [purity,entropy,counts_d, dt,egL]
 
         ############################################################
         ############################################################
@@ -82,7 +85,7 @@ for k in range(len_k):
 
 
 
-        # qutip
+        # Qutip parallelization
 
         # random parameter generator 
         random_states = qt.parallel_map(batch_data,np.arange(samples),\
@@ -90,29 +93,27 @@ for k in range(len_k):
         random_states= np.array(random_states,dtype=object)
 
         eigen_H= np.take(random_states,3,axis=1)
-        # D_f= np.take(random_states,2,axis=1)
-        # Hamiltonians= np.take(random_states,1,axis=1)
-       # Liouvillians= np.take(random_states,0,axis=1)
-        #input=np.array([ (L,H,D,E) for L,H,D,E in zip(Liouvillians,Hamiltonians,D_f) ], dtype= object)
-
+        
+        #Liouvillians= np.take(random_states,0,axis=1)
+        
         # random physical quantities
         random_evo = qt.parallel_map(evo,random_states,progress_bar= True)
         random_evo= np.array(random_evo, dtype= object)
-        rand_eigL= qt.parallel_map(eig_L,Liouvillians)
+
+        #rand_eigL= qt.parallel_map(eig_L,Liouvillians, progress_bar= True)
 
         purity=np.take(random_evo, 0,axis=1)
         entropy=np.take(random_evo, 1,axis=1)
         counts= np.take(random_evo,2,axis=1)
         traced=np.take(random_evo, 3,axis=1)
+        eigen_L= np.take(random_evo,4, axis=1)
 
-        print('S=%s, N=%s, w=%.3f, gamma=%.3f, g=%.3f, beta=%.3f'%(samples,\
-                Model.N, Model.w, Model.gamma,\
-                Model.g, Model.beta)," process saved")
+        
 
         #save data 
 
         data.update({"purity":purity,"entropy":entropy, 'norm':traced,\
-                    "eigenvalues":eigen_H, "counts_d":counts,"eigenvalues_L":rand_eigL })
+                    "eigenvalues":eigen_H, "counts_d":counts,"eigenvalues_L": eigen_L })
 
         name_lg = 'DataBatchParallel/N_%s/loss_gain/S_%s/w%.3f_g%.3f_'\
                 %(Model.N, samples, Model.w, Model.g)+\
@@ -120,6 +121,9 @@ for k in range(len_k):
                 %(Model.gamma, Model.beta)+'.pickle'
         with open(name_lg,'wb') as handle:
             pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL) 
+        print('S=%s, N=%s, w=%.3f, gamma=%.3f, g=%.3f, beta=%.3f'%(samples,\
+                Model.N, Model.w, Model.gamma,\
+                Model.g, Model.beta)," process saved")
         
 
 
