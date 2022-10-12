@@ -109,7 +109,7 @@ class OpenSYK():
     
   #Hamiltonian of the system SYK+central fermion
   @property
-  def Hamiltonian1(self):
+  def Hamiltonian1(self,seed):
     N = self.N
     c_fermi = self.fermion_operators
     wg = np.zeros(self.n1)
@@ -117,10 +117,9 @@ class OpenSYK():
     wg[1:]= self.g   # interaction strength
 
     #random interaction matrix 
-    #--------------------------------#
-    np.random.seed(int.from_bytes(os.urandom(4), byteorder='little'))
-    #--------------------------------#
-    K = np.random.randn(self.N,self.N) 
+    
+    state=np.random.RandomState(seed)
+    K = state.randn(N,N) 
     K = 0.5*(K - K.T)
 
     # K_ab eigenenergies
@@ -160,7 +159,7 @@ class OpenSYK():
     
   #@property
   # Liovillian for generalized dissipator
-  def Liouvilian(self,step):
+  def Liouvilian(self,step,seed):
     N = self.N
     c_fermi = self.fermion_operators
     wg = np.zeros(self.n1)
@@ -171,7 +170,8 @@ class OpenSYK():
     #--------------------------------#
    # np.random.seed(int.from_bytes(os.urandom(4), byteorder='little'))
     #--------------------------------#
-    K = np.random.randn(self.N,self.N) 
+    state=np.random.RandomState(seed)
+    K = state.randn(N,N) 
     K = 0.5*(K - K.T)
 
     # K_ab eigenenergies
@@ -238,49 +238,50 @@ class OpenSYK():
     ### RWA Liouvillian ###
     L_RWA= L 
     ### RWA plus lamb shift Liouvillian ###
-    L_RWAS = L+ LS
+    #L_RWAS = L+ LS
     
     '''
      Evolution without RWA
     '''
     ### General Liouvillian ###
-    L_G = L_RWAS
+#     L_G = L_RWAS
     
-    # phase terms for master equation without RWA
-    comb = combinations(np.arange(len(J_op)),2)
-    comb = [c for c in comb]
+#     # phase terms for master equation without RWA
+#     comb = combinations(np.arange(len(J_op)),2)
+#     comb = [c for c in comb]
     
-    for jump in comb:
-        i,j = jump
-        a,b= J_op[j], J_op[i]
-        # gamma matrix 
-        XI_ij= random_c[i]*random_c[j]
-      #  XI_ij= 1
-        Spos_i, Sneg_i= self.LambS(0.5*self.beta*epsilon[i],step)
-        Spos_i, Sneg_i= XI_ij*Spos_i, XI_ij*Sneg_i
+#     for jump in comb:
+#         i,j = jump
+#         a,b= J_op[j], J_op[i]
+#         # gamma matrix 
+#         XI_ij= random_c[i]*random_c[j]
+#       #  XI_ij= 1
+#         Spos_i, Sneg_i= self.LambS(0.5*self.beta*epsilon[i],step)
+#         Spos_i, Sneg_i= XI_ij*Spos_i, XI_ij*Sneg_i
             
-#        Spos_i, Sneg_i= 1000,1000
+# #        Spos_i, Sneg_i= 1000,1000
         
-        Spos_j, Sneg_j= self.LambS(0.5*self.beta*epsilon[j],step)
-        Spos_j, Sneg_j= XI_ij*Spos_j, XI_ij*Sneg_j
-#        Spos_j, Sneg_j= 1000,1000
-        gpos_i, gpos_j= random_cps[i], random_cps[j] 
-        gneg_i, gneg_j= random_cps_m[i], random_cps_m[j]
-#         gpos_i, gpos_j= 1000,1000
-#         gneg_i, gneg_j= 1000,1000
-        bd_a= b.dag()*a
-        a_bd= a*b.dag()
+#         Spos_j, Sneg_j= self.LambS(0.5*self.beta*epsilon[j],step)
+#         Spos_j, Sneg_j= XI_ij*Spos_j, XI_ij*Sneg_j
+# #        Spos_j, Sneg_j= 1000,1000
+#         gpos_i, gpos_j= random_cps[i], random_cps[j] 
+#         gneg_i, gneg_j= random_cps_m[i], random_cps_m[j]
+# #         gpos_i, gpos_j= 1000,1000
+# #         gneg_i, gneg_j= 1000,1000
+#         bd_a= b.dag()*a
+#         a_bd= a*b.dag()
       
-  # generalized dissipator superoperator
-        D= (0.5*(gpos_j+gpos_i)+1j*(Spos_j-Spos_i))*(qt.spre(a)*qt.spost(b.dag()))\
-            - (0.5 * gpos_j + 1j * Spos_j) * qt.spre(bd_a)\
-            - (0.5 * gpos_i - 1j * Spos_i ) * qt.spost(bd_a)\
-           +(0.5*(gneg_j+gneg_i)+1j*(Sneg_j-Sneg_i))*(qt.spre(b.dag()) * qt.spost(a))\
-            - (0.5*gneg_i - 1j*Sneg_i)*qt.spre(a_bd)\
-            - (0.5*gneg_j + 1j*Sneg_j)*qt.spost(a_bd)                                                 
-        L_G += D
+#   # generalized dissipator superoperator
+#         D= (0.5*(gpos_j+gpos_i)+1j*(Spos_j-Spos_i))*(qt.spre(a)*qt.spost(b.dag()))\
+#             - (0.5 * gpos_j + 1j * Spos_j) * qt.spre(bd_a)\
+#             - (0.5 * gpos_i - 1j * Spos_i ) * qt.spost(bd_a)\
+#            +(0.5*(gneg_j+gneg_i)+1j*(Sneg_j-Sneg_i))*(qt.spre(b.dag()) * qt.spost(a))\
+#             - (0.5*gneg_i - 1j*Sneg_i)*qt.spre(a_bd)\
+#             - (0.5*gneg_j + 1j*Sneg_j)*qt.spost(a_bd)                                                 
+#         L_G += D
         
-    return L_RWA, L_RWAS, L_G, D_op, epsilon, random_c, H_d
+    # return L_RWA, L_RWAS, L_G, D_op, epsilon, random_c, H_d
+    return L_RWA, D_op, epsilon, random_c, H_d
     
     
 
@@ -412,12 +413,13 @@ def P_infty(Beta,eps):
 
 ## Parallelization
 
-def batch_data(iteration, *args):
+def batch_data(seed, *args):
 
     model,step,op,time= args
 
     #generate the system Liouvilian and Gibbs state
-    L, LS, LG, D, epsilon, random_c, H_d = model.Liouvilian(step)
+    # L, LS, LG, D, epsilon, random_c, H_d = model.Liouvilian(step)
+    L, D, epsilon, random_c, H_d = model.Liouvilian(step,seed)
     return [L, H_d, D, epsilon]
     
 def eig_L(l): 

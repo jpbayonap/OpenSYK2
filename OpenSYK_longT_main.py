@@ -18,36 +18,95 @@ import time
 from OpenSYK_functions import *
 
 
+#merge data 
 
-for k in range(len_k):
+def mergeDictionary(dict_1, dict_2):
+   dict_3 = {**dict_1, **dict_2}
+   for key, value in dict_3.items():
+       if key in dict_1 and key in dict_2:
+               dict_3[key] = np.array([value , dict_1[key]])
+               dict_3[key]= dict_3[key].reshape(len(value)*2)
+   return dict_3
+
+############################################################
+############################################################
+
+
+#import data 
+## import data ##
+DATA=[]
+i,j= 0,0
+# Majorana fermion number
+m= 0
+#sampling number
+samples = 500
+for a in range(len_k):
+#   for b in range(len_l):
+  for b in [0]:
+    Model = OpenSYK(P["w"][0], P["gamma/w"][0], P["w/g"][a],\
+    P["gamma/beta"][b], P["N"][m],  1 )
+
+    N= Model.N
+#     name = 'DataBatchParallel/N_%s/gain/w%.3f_w_g%.3f_'%(Model.N, Model.w, Model.w_g)+'N%.1f_'%(N)\
+#               +'gamma_w%.3f_gamma_beta%.6f'%(Model.gamma_w, Model.gamma_beta)
+    name_1 = 'DataBatchParallel/N_%s/loss_gain/S_%s/p1/w%.3f_g%.3f_'\
+            %(Model.N, samples, Model.w, Model.g)+\
+            'N%.1f_'%(N)+'gamma%.3f_beta%.6f'\
+            %(Model.gamma, Model.beta)
+    name_2 = 'DataBatchParallel/N_%s/loss_gain/S_%s/p2/w%.3f_g%.3f_'\
+            %(Model.N, samples, Model.w, Model.g)+\
+            'N%.1f_'%(N)+'gamma%.3f_beta%.6f'\
+            %(Model.gamma, Model.beta)
+#     name_3 = 'DataBatchParallel/N_%s/loss_gain/S_%s/w%.3f_g%.3f_'\
+#             %(Model.N, samples, Model.w, Model.g)+\
+#             'N%.1f_'%(N)+'gamma%.3f_beta%.3f'\
+#             %(Model.gamma, Model.beta)
+#     with open(name_3+'.pickle','rb') as handle:
+#             DATA3.append(pickle.load( handle))
+    with open(name_1+'.pickle','rb') as handle:
+      DATA1=pickle.load( handle)
+    with open(name_2+'.pickle','rb') as handle:
+      DATA2= pickle.load(handle)
+    DATA.append(mergeDictionary(DATA1, DATA2 ))
+
 
   
-    # data= { "counts_d":[], "purity":[], "entropy":[], "eigenvalues":[], "L":[],\
-    #         'norm':[], 'seed':[], 'KLdiv': []}
+## obtain seeds for previous simulations
+DATA= np.array(DATA)
+random_seed= DATA[0]['seed'] 
+random_seed= random_seed.reshape(2,250)
+#reset dictionary to save memory
+DATA =[]
+DATA1=[]
+DATA2=[]
+############################################################
+############################################################
+end= 50000
+times = np.append(np.linspace(0,10,4000),np.arange(10,end,1))
+
+for k in range(len_k):
     part=0
-    
-    # for l in range(len_l):
-    #done 0 ,1, 2, 3,4  
-    for l in [4,4]: 
+    for l in [0,0]: 
         
     #initial conditions
-     
+        
+        
         Model = create_Model(0,0,k,l,0)
-        # Model = create_Model(0,0,k,l,-1)
         N= Model.N
         Op= qt.Options()
         Op.nsteps= 50000
         step= 2e4
-        samples= 500
+        samples= 10
+        seed= random_seed[part]
 
         print('S=%s, N=%s, w=%.3f, gamma=%.3f, g=%.3f, beta=%.3f'%(samples,\
                 Model.N, Model.w, Model.gamma,\
                 Model.g, Model.beta)," process started")
 
-        random_seed= np.random.randint(np.iinfo(np.int32).max, size=samples)
+        
         psi_0= qt.tensor(*[qt.basis(2,1) for j in range(N//2+1)])
         data= { "counts_d":[], "purity":[], "entropy":[], "eigenvalues":[], "L":[],\
-            'norm':[], 'seed':random_seed}
+            'norm':[]}
 
         # functions
         ############################################################
@@ -114,7 +173,7 @@ for k in range(len_k):
         # Qutip parallelization
 
         # random parameter generator 
-        random_states = qt.parallel_map(batch_data, random_seed,\
+        random_states = qt.parallel_map(batch_data, seed,\
                             task_args= (Model,step,Op,times), progress_bar= True)
         random_states= np.array(random_states,dtype=object)
 
@@ -135,19 +194,17 @@ for k in range(len_k):
         relative_ent= np.take(random_evo, 5, axis=1)
 
     
-        
-        
         #save data 
 
         data.update( {"purity":purity,"entropy":entropy, 'norm':traced,\
                     "eigenvalues":eigen_H, "counts_d":counts,"eigenvalues_L": eigen_L,\
-                        'seed':random_seed, 'KLdiv': relative_ent } )
+                        'seed':seed, 'KLdiv': relative_ent } )
 
-        name_lg = 'DataBatchParallel/N_%s/loss_gain/S_%s/p%s/w%.3f_g%.3f_'\
+        name_lg = 'DataBatchParallel/N_%s/loss_gain/S_%s/long_T/p%s/w%.3f_g%.3f_'\
                 %(Model.N, samples*2, part+1, Model.w, Model.g)+\
                 'N%.1f_'%(N)+'gamma%.3f_beta%.6f'\
                 %(Model.gamma, Model.beta)+'.pickle'
-    
+
         # name_lg = 'DataBatchParallel/N_%s/loss_gain/S_%s/w%.3f_g%.3f_'\
         #         %(Model.N, samples, Model.w, Model.g)+\
         #         'N%.1f_'%(N)+'gamma%.3f_beta%.3f'\
@@ -157,6 +214,7 @@ for k in range(len_k):
         print('S=%s, N=%s, w=%.3f, gamma=%.3f, g=%.3f, beta=%.3f'%(samples,\
                 Model.N, Model.w, Model.gamma,\
                 Model.g, Model.beta)," process saved")
-        part+=1
 
-#poster:cond-mat_510 凝縮系　user name
+        #update seed
+        part += 1
+
