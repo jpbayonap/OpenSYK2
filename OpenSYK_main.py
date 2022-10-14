@@ -20,7 +20,7 @@ Time evolution for quantum master equation in Linddblad form
 
 #linear sampling
 # w, w/Gamma, N value
-i,j,m= 0,0,-1
+i,j,m= 0,0,0
 #sampling number
 s= 1
 samples = P["AverageNumber"][1]

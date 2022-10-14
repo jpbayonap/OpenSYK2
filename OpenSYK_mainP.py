@@ -28,7 +28,7 @@ for k in range(len_k):
     
     # for l in range(len_l):
     #done 0 ,1, 2, 3,4  
-    for l in [4,4]: 
+    for l in [0,0]: 
         
     #initial conditions
      
@@ -38,7 +38,7 @@ for k in range(len_k):
         Op= qt.Options()
         Op.nsteps= 50000
         step= 2e4
-        samples= 500
+        samples= 250
 
         print('S=%s, N=%s, w=%.3f, gamma=%.3f, g=%.3f, beta=%.3f'%(samples,\
                 Model.N, Model.w, Model.gamma,\
@@ -47,7 +47,8 @@ for k in range(len_k):
         random_seed= np.random.randint(np.iinfo(np.int32).max, size=samples)
         psi_0= qt.tensor(*[qt.basis(2,1) for j in range(N//2+1)])
         data= { "counts_d":[], "purity":[], "entropy":[], "eigenvalues":[], "L":[],\
-            'norm':[], 'seed':random_seed}
+            'norm':[], }
+        data_seed = {'seed':[]}
 
         # functions
         ############################################################
@@ -124,7 +125,7 @@ for k in range(len_k):
             
         
         #joblib 
-        random_evo= Parallel(n_jobs=7,verbose=5, pre_dispatch='1.5*n_jobs')(delayed(evo)(r) for r in random_states )
+        random_evo= Parallel(n_jobs=11,verbose=5, pre_dispatch='1.5*n_jobs')(delayed(evo)(r) for r in random_states )
         random_evo= np.array(random_evo, dtype= object)
 
         purity=np.take(random_evo, 0, axis=1)
@@ -141,12 +142,21 @@ for k in range(len_k):
 
         data.update( {"purity":purity,"entropy":entropy, 'norm':traced,\
                     "eigenvalues":eigen_H, "counts_d":counts,"eigenvalues_L": eigen_L,\
-                        'seed':random_seed, 'KLdiv': relative_ent } )
+                         'KLdiv': relative_ent } )
+
+        data_seed.update({"seed":random_seed})
 
         name_lg = 'DataBatchParallel/N_%s/loss_gain/S_%s/p%s/w%.3f_g%.3f_'\
                 %(Model.N, samples*2, part+1, Model.w, Model.g)+\
                 'N%.1f_'%(N)+'gamma%.3f_beta%.6f'\
                 %(Model.gamma, Model.beta)+'.pickle'
+        name_seed = 'DataBatchParallel/N_%s/loss_gain/S_%s/p%s/seed w%.3f_g%.3f_'\
+                %(Model.N, samples*2, part+1, Model.w, Model.g)+\
+                'N%.1f_'%(N)+'gamma%.3f_beta%.6f'\
+                %(Model.gamma, Model.beta)+'.pickle'
+        
+        
+
     
         # name_lg = 'DataBatchParallel/N_%s/loss_gain/S_%s/w%.3f_g%.3f_'\
         #         %(Model.N, samples, Model.w, Model.g)+\
@@ -154,6 +164,8 @@ for k in range(len_k):
         #         %(Model.gamma, Model.beta)+'.pickle'
         with open(name_lg,'wb') as handle:
             pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL) 
+        with open(name_seed,'wb') as handle:
+            pickle.dump(data_seed, handle, protocol=pickle.HIGHEST_PROTOCOL)     
         print('S=%s, N=%s, w=%.3f, gamma=%.3f, g=%.3f, beta=%.3f'%(samples,\
                 Model.N, Model.w, Model.gamma,\
                 Model.g, Model.beta)," process saved")

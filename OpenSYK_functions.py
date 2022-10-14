@@ -20,9 +20,11 @@ P = {"w": [1e-1,1,1e1],"gamma/w":[1,1e1,1e2], "w/g": np.array([1e-1, 2e-1, 1, 2,
 len_k= len(P["w/g"])
 len_l= len(P["gamma/beta"])
 #Evolution time
-end= 2000
-times = np.append(np.linspace(0,10,400),np.arange(10,end,1))
-times2= np.append(np.linspace(0,10,200),np.arange(10,end,1))
+end= 90000
+# end = 15000
+
+#times = np.append(np.linspace(0,10,4000),np.arange(10,end,1))
+times= np.append(np.linspace(0,10,5000),np.arange(10,end,1))
 times.size
 #############################################################################
 
