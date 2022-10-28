@@ -1,0 +1,305 @@
+2022-10-28 10:35:47,618 DEBUG mylogger p181236 {OpenSYK_mainOP.py:63}  - start
+[Parallel(n_jobs=10)]: Using backend LokyBackend with 10 concurrent workers.
+2022-10-28 10:35:49,243 DEBUG mylogger p181242 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:49,244 DEBUG mylogger p181244 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:49,248 DEBUG mylogger p181243 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:49,248 DEBUG mylogger p181245 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:49,299 DEBUG mylogger p181248 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:49,301 DEBUG mylogger p181249 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:49,307 DEBUG mylogger p181247 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:49,313 DEBUG mylogger p181246 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:49,322 DEBUG mylogger p181250 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:49,322 DEBUG mylogger p181251 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:49,639 DEBUG mylogger p181242 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:49,647 DEBUG mylogger p181245 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:49,659 DEBUG mylogger p181244 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:49,671 DEBUG mylogger p181243 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:49,695 DEBUG mylogger p181249 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:49,703 DEBUG mylogger p181248 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:49,713 DEBUG mylogger p181246 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:49,718 DEBUG mylogger p181251 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:49,723 DEBUG mylogger p181250 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:49,729 DEBUG mylogger p181247 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:50,640 DEBUG mylogger p181242 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:50,648 DEBUG mylogger p181245 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:50,660 DEBUG mylogger p181244 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:50,673 DEBUG mylogger p181243 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:50,696 DEBUG mylogger p181249 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:50,704 DEBUG mylogger p181248 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:50,714 DEBUG mylogger p181246 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:50,719 DEBUG mylogger p181251 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:50,724 DEBUG mylogger p181250 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:50,730 DEBUG mylogger p181247 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:51,054 DEBUG mylogger p181242 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:51,066 DEBUG mylogger p181245 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:51,094 DEBUG mylogger p181244 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:51,095 DEBUG mylogger p181249 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:51,105 DEBUG mylogger p181243 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:51,116 DEBUG mylogger p181248 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:51,119 DEBUG mylogger p181246 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:51,122 DEBUG mylogger p181251 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:51,131 DEBUG mylogger p181250 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:51,173 DEBUG mylogger p181247 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:54,866 DEBUG mylogger p181242 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:35:54,867 DEBUG mylogger p181242 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:35:54,905 DEBUG mylogger p181251 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:35:54,906 DEBUG mylogger p181251 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:35:54,923 DEBUG mylogger p181249 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:35:54,924 DEBUG mylogger p181249 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+[Parallel(n_jobs=10)]: Done   3 tasks      | elapsed:    7.3s
+2022-10-28 10:35:54,945 DEBUG mylogger p181245 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:35:54,945 DEBUG mylogger p181245 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:35:54,965 DEBUG mylogger p181242 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:55,015 DEBUG mylogger p181251 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:55,024 DEBUG mylogger p181249 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:55,034 DEBUG mylogger p181246 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:35:55,034 DEBUG mylogger p181246 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:35:55,038 DEBUG mylogger p181250 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:35:55,038 DEBUG mylogger p181245 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:55,038 DEBUG mylogger p181250 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:35:55,048 DEBUG mylogger p181244 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:35:55,049 DEBUG mylogger p181244 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:35:55,054 DEBUG mylogger p181248 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:35:55,054 DEBUG mylogger p181248 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:35:55,120 DEBUG mylogger p181247 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:35:55,120 DEBUG mylogger p181247 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:35:55,139 DEBUG mylogger p181246 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:55,144 DEBUG mylogger p181250 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:55,149 DEBUG mylogger p181244 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:55,152 DEBUG mylogger p181248 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:55,203 DEBUG mylogger p181243 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:35:55,203 DEBUG mylogger p181243 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:35:55,211 DEBUG mylogger p181247 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:55,289 DEBUG mylogger p181242 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:55,299 DEBUG mylogger p181243 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:35:55,338 DEBUG mylogger p181251 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:55,350 DEBUG mylogger p181249 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:55,466 DEBUG mylogger p181246 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:55,476 DEBUG mylogger p181250 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:55,480 DEBUG mylogger p181248 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:55,493 DEBUG mylogger p181244 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:55,565 DEBUG mylogger p181247 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:55,646 DEBUG mylogger p181243 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:55,672 DEBUG mylogger p181245 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:35:56,290 DEBUG mylogger p181242 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:56,339 DEBUG mylogger p181251 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:56,351 DEBUG mylogger p181249 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:56,468 DEBUG mylogger p181246 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:56,477 DEBUG mylogger p181250 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:56,482 DEBUG mylogger p181248 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:56,494 DEBUG mylogger p181244 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:56,566 DEBUG mylogger p181247 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:56,648 DEBUG mylogger p181243 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:56,673 DEBUG mylogger p181245 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:35:56,682 DEBUG mylogger p181242 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:56,724 DEBUG mylogger p181251 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:56,734 DEBUG mylogger p181249 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:56,854 DEBUG mylogger p181246 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:56,866 DEBUG mylogger p181248 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:56,866 DEBUG mylogger p181250 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:56,895 DEBUG mylogger p181244 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:56,990 DEBUG mylogger p181247 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:57,058 DEBUG mylogger p181243 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:35:57,380 DEBUG mylogger p181245 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:00,550 DEBUG mylogger p181242 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:00,551 DEBUG mylogger p181242 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:00,605 DEBUG mylogger p181251 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:00,606 DEBUG mylogger p181251 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:00,617 DEBUG mylogger p181242 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:00,626 DEBUG mylogger p181249 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:00,627 DEBUG mylogger p181249 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:00,672 DEBUG mylogger p181251 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:00,689 DEBUG mylogger p181249 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:00,816 DEBUG mylogger p181246 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:00,817 DEBUG mylogger p181246 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:00,835 DEBUG mylogger p181250 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:00,835 DEBUG mylogger p181250 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:00,880 DEBUG mylogger p181246 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:00,890 DEBUG mylogger p181248 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:00,891 DEBUG mylogger p181248 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:00,898 DEBUG mylogger p181250 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:00,910 DEBUG mylogger p181244 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:00,910 DEBUG mylogger p181244 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:00,937 DEBUG mylogger p181242 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:00,955 DEBUG mylogger p181248 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:00,973 DEBUG mylogger p181244 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:00,985 DEBUG mylogger p181251 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:01,004 DEBUG mylogger p181247 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:01,004 DEBUG mylogger p181247 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:01,008 DEBUG mylogger p181249 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:01,067 DEBUG mylogger p181247 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:01,201 DEBUG mylogger p181246 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:01,207 DEBUG mylogger p181243 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:01,208 DEBUG mylogger p181243 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:01,224 DEBUG mylogger p181250 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:01,273 DEBUG mylogger p181245 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:01,273 DEBUG mylogger p181245 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:01,274 DEBUG mylogger p181243 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:01,279 DEBUG mylogger p181248 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:01,314 DEBUG mylogger p181244 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:01,335 DEBUG mylogger p181245 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:01,411 DEBUG mylogger p181247 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:01,610 DEBUG mylogger p181243 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:01,634 DEBUG mylogger p181245 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:01,939 DEBUG mylogger p181242 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:01,987 DEBUG mylogger p181251 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:02,009 DEBUG mylogger p181249 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:02,202 DEBUG mylogger p181246 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:02,225 DEBUG mylogger p181250 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:02,281 DEBUG mylogger p181248 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:02,316 DEBUG mylogger p181244 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:02,375 DEBUG mylogger p181242 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:02,412 DEBUG mylogger p181247 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:02,425 DEBUG mylogger p181251 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:02,437 DEBUG mylogger p181249 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:02,611 DEBUG mylogger p181243 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:02,635 DEBUG mylogger p181245 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:02,641 DEBUG mylogger p181246 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:02,658 DEBUG mylogger p181250 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:02,746 DEBUG mylogger p181248 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:02,770 DEBUG mylogger p181244 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:02,877 DEBUG mylogger p181247 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:03,067 DEBUG mylogger p181245 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:03,073 DEBUG mylogger p181243 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:06,203 DEBUG mylogger p181242 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:06,203 DEBUG mylogger p181242 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:06,249 DEBUG mylogger p181251 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:06,250 DEBUG mylogger p181251 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:06,263 DEBUG mylogger p181242 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:06,284 DEBUG mylogger p181249 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:06,285 DEBUG mylogger p181249 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:06,311 DEBUG mylogger p181251 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:06,344 DEBUG mylogger p181249 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:06,569 DEBUG mylogger p181246 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:06,569 DEBUG mylogger p181246 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:06,574 DEBUG mylogger p181242 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:06,574 DEBUG mylogger p181250 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:06,574 DEBUG mylogger p181250 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:06,620 DEBUG mylogger p181251 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:06,632 DEBUG mylogger p181246 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:06,637 DEBUG mylogger p181250 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:06,661 DEBUG mylogger p181249 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:06,718 DEBUG mylogger p181244 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:06,718 DEBUG mylogger p181244 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:06,755 DEBUG mylogger p181248 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:06,756 DEBUG mylogger p181248 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:06,781 DEBUG mylogger p181244 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:06,819 DEBUG mylogger p181248 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:06,838 DEBUG mylogger p181247 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:06,838 DEBUG mylogger p181247 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:06,902 DEBUG mylogger p181247 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:06,941 DEBUG mylogger p181245 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:06,941 DEBUG mylogger p181245 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:06,952 DEBUG mylogger p181246 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:06,960 DEBUG mylogger p181250 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:07,003 DEBUG mylogger p181245 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:07,131 DEBUG mylogger p181244 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:07,148 DEBUG mylogger p181248 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:07,166 DEBUG mylogger p181243 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:07,166 DEBUG mylogger p181243 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:07,232 DEBUG mylogger p181243 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:07,249 DEBUG mylogger p181247 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:07,315 DEBUG mylogger p181245 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:07,550 DEBUG mylogger p181243 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:07,575 DEBUG mylogger p181242 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:07,621 DEBUG mylogger p181251 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:07,662 DEBUG mylogger p181249 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:07,954 DEBUG mylogger p181246 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:07,961 DEBUG mylogger p181250 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:07,983 DEBUG mylogger p181242 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:08,032 DEBUG mylogger p181251 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:08,076 DEBUG mylogger p181249 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:08,132 DEBUG mylogger p181244 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:08,150 DEBUG mylogger p181248 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:08,251 DEBUG mylogger p181247 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:08,316 DEBUG mylogger p181245 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:08,390 DEBUG mylogger p181246 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:08,397 DEBUG mylogger p181250 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:08,551 DEBUG mylogger p181243 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:08,587 DEBUG mylogger p181248 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:08,594 DEBUG mylogger p181244 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:08,713 DEBUG mylogger p181247 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:08,773 DEBUG mylogger p181245 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:08,997 DEBUG mylogger p181243 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:11,814 DEBUG mylogger p181242 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:11,815 DEBUG mylogger p181242 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:11,845 DEBUG mylogger p181251 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:11,845 DEBUG mylogger p181251 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:11,875 DEBUG mylogger p181242 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:11,906 DEBUG mylogger p181251 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:11,926 DEBUG mylogger p181249 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:11,926 DEBUG mylogger p181249 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:11,989 DEBUG mylogger p181249 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:12,191 DEBUG mylogger p181242 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:12,218 DEBUG mylogger p181251 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:12,298 DEBUG mylogger p181249 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:12,302 DEBUG mylogger p181246 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:12,303 DEBUG mylogger p181246 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:12,328 DEBUG mylogger p181250 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:12,328 DEBUG mylogger p181250 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:12,361 DEBUG mylogger p181246 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:12,387 DEBUG mylogger p181250 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:12,532 DEBUG mylogger p181248 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:12,533 DEBUG mylogger p181248 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:12,536 DEBUG mylogger p181244 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:12,537 DEBUG mylogger p181244 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:12,597 DEBUG mylogger p181248 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:12,599 DEBUG mylogger p181244 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:12,673 DEBUG mylogger p181245 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:12,673 DEBUG mylogger p181246 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:12,674 DEBUG mylogger p181245 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:12,675 DEBUG mylogger p181247 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:12,676 DEBUG mylogger p181247 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:12,705 DEBUG mylogger p181250 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:12,737 DEBUG mylogger p181245 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:12,739 DEBUG mylogger p181247 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:12,925 DEBUG mylogger p181248 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:12,943 DEBUG mylogger p181244 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:13,050 DEBUG mylogger p181245 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:13,080 DEBUG mylogger p181247 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:13,091 DEBUG mylogger p181243 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:13,091 DEBUG mylogger p181243 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:13,151 DEBUG mylogger p181243 {OpenSYK_functions.py:608}  - 🚀 Starting time evolution
+2022-10-28 10:36:13,193 DEBUG mylogger p181242 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:13,219 DEBUG mylogger p181251 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:13,300 DEBUG mylogger p181249 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:13,495 DEBUG mylogger p181243 {OpenSYK_functions.py:611}  - 😎 time evolution finished
+2022-10-28 10:36:13,612 DEBUG mylogger p181242 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:13,630 DEBUG mylogger p181251 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:13,674 DEBUG mylogger p181246 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:13,707 DEBUG mylogger p181250 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:13,712 DEBUG mylogger p181249 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:13,926 DEBUG mylogger p181248 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:13,944 DEBUG mylogger p181244 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:14,051 DEBUG mylogger p181245 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:14,081 DEBUG mylogger p181247 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:14,092 DEBUG mylogger p181246 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:14,140 DEBUG mylogger p181250 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:14,353 DEBUG mylogger p181248 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:14,383 DEBUG mylogger p181244 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:14,466 DEBUG mylogger p181245 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:14,496 DEBUG mylogger p181243 {OpenSYK_functions.py:613}  - 🚀 Starting time evolution 2
+2022-10-28 10:36:14,537 DEBUG mylogger p181247 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:14,943 DEBUG mylogger p181243 {OpenSYK_functions.py:616}  - 😎 time evolution 2 finished
+2022-10-28 10:36:17,424 DEBUG mylogger p181251 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:17,425 DEBUG mylogger p181251 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:17,427 DEBUG mylogger p181242 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:17,427 DEBUG mylogger p181242 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:17,566 DEBUG mylogger p181249 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:17,567 DEBUG mylogger p181249 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:18,022 DEBUG mylogger p181246 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:18,022 DEBUG mylogger p181246 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:18,046 DEBUG mylogger p181250 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:18,047 DEBUG mylogger p181250 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:18,290 DEBUG mylogger p181248 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:18,291 DEBUG mylogger p181248 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:18,317 DEBUG mylogger p181244 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:18,318 DEBUG mylogger p181244 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+[Parallel(n_jobs=10)]: Done  47 out of  50 | elapsed:   30.7s remaining:    2.0s
+2022-10-28 10:36:18,343 DEBUG mylogger p181245 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:18,343 DEBUG mylogger p181245 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:18,490 DEBUG mylogger p181247 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:18,491 DEBUG mylogger p181247 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+2022-10-28 10:36:18,994 DEBUG mylogger p181243 {OpenSYK_functions.py:639}  - 🚀  Starting Liouvillian diagonalization
+2022-10-28 10:36:18,995 DEBUG mylogger p181243 {OpenSYK_functions.py:641}  - 😎  Liouvillian diagonalization finished
+[Parallel(n_jobs=10)]: Done  50 out of  50 | elapsed:   31.4s finished
