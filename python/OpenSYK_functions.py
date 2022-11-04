@@ -10,6 +10,9 @@ import matplotlib.pyplot as plt
 from scipy import integrate
 from mpmath import *
 import time
+import pickle
+
+# from memory_profiler import profile
 
 # TEST BETTER COMMENTS
 # * IMPORTANT INFO IS HIGHTLIGHTED
@@ -58,16 +61,23 @@ P = {
 }
 
 Op = qt.Options()
+Op.store_states = True
 # Op.nsteps = 50000
 step = 2e4
+delta = 100
 len_k = len(P["w/g"])
 len_l = len(P["gamma/beta"])
 # Evolution time
-# end = 2000000
+end = 10000000
+# end = 1000000
+# end = 100000
 # end = 90000
-end = 5000
+# end = 5000
 
-times = np.append(np.linspace(0, 10, 4000), np.arange(10, end, 1))
+# times = np.append(np.linspace(0, 10, 4000), np.arange(10, end, 1))
+# times = np.arange(0, end, 10)
+times = np.arange(0, end, delta)
+
 # times = np.append(np.linspace(0, 10, 5000), np.arange(10, end, 1))
 
 #############################################################################
@@ -169,9 +179,9 @@ class OpenSYK:
     def Hamiltonian1(self, seed):
         N = self.N
         c_fermi = self.fermion_operators
-        wg = np.zeros(self.n1)
-        wg[0] = self.w / 2  # isolated fermion energy
-        wg[1:] = self.g  # interaction strength
+        LEFT_EDGE_M = np.zeros(self.n1)
+        LEFT_EDGE_M[0] = self.w / 2  # isolated fermion energy
+        LEFT_EDGE_M[1:] = self.g  # interaction strength
 
         # random interaction matrix
 
@@ -186,7 +196,9 @@ class OpenSYK:
         # define M
         M = np.zeros((self.n1) ** 2)
         M = M.reshape(self.n1, self.n1)
-        M[0] = wg
+        # left edge
+        M[0] = LEFT_EDGE_M
+        # N-1 diagonal terms
         for x in range(self.n2):
             M[x + 1][x + 1] = lbd[x] / 2
         M = M + M.T
@@ -305,7 +317,9 @@ class OpenSYK:
         L = -1.0j * (qt.spre(H_d) - qt.spost(H_d))
 
         ###  RWA terms ###
+
         # Lamb shift term with RWA
+
         LS = L
         for op in range(len(J_op)):
             J = J_op[op]
@@ -411,33 +425,108 @@ def mergeDictionary(dict_1, dict_2):
     return dict_3
 
 
-def ImportData_seed(i, j, k, l, m):
+def ImportData_seed(i, j, k, l, m, samples, DELTA):
     DATA = []
-    Model = create_Model(0, 0, a, b, m)
+    Model = create_Model(i, j, k, l, m)
     N = Model.N
     base_folder = f"../DataBatchParallel/N_{Model.N}/loss_gain/S_{samples}/"
 
-    name_1 = os.path.join(
-        base_folder,
-        "p1/seed w%.3f_g%.3f_N%s_gamma%.3f_beta%.6f"
-        % (Model.w, Model.g, N, Model.gamma, Model.beta)
-        + ".pickle",
-    )
-
-    name_2 = os.path.join(
-        base_folder,
-        "p2/seed w%.3f_g%.3f_N%s_gamma%.3f_beta%.6f"
-        % (Model.w, Model.g, N, Model.gamma, Model.beta)
-        + ".pickle",
-    )
+    if DELTA != 0:
+        name_1 = os.path.join(
+            base_folder,
+            "TEST%s seed w%.3f_g%.3f_N%s_gamma%.3f_beta%.3f"
+            % (DELTA, Model.w, Model.g, N, Model.gamma, Model.beta)
+            + ".pickle",
+        )
+    else:
+        name_1 = os.path.join(
+            base_folder,
+            "seed w%.3f_g%.3f_N%s_gamma%.3f_beta%.3f"
+            % (Model.w, Model.g, N, Model.gamma, Model.beta)
+            + ".pickle",
+        )
 
     with open(name_1, "rb") as handle:
         DATA1 = pickle.load(handle)
-    with open(name_2, "rb") as handle:
-        DATA2 = pickle.load(handle)
-    DATA.append(mergeDictionary(DATA1, DATA2))
+    # with open(name_2, "rb") as handle:
+    #     DATA2 = pickle.load(handle)
 
-    return DATA
+    rn_seed = DATA1["seed"]
+
+    return rn_seed
+
+
+def saveDATA(*args):
+
+    (
+        I,
+        J,
+        K,
+        L,
+        M,
+        random_seed,
+        samples,
+        purity,
+        entropy,
+        traced,
+        eigen_H,
+        counts,
+        eigen_L,
+        relative_ent,
+    ) = args
+    data = {
+        "counts_d": [],
+        "purity": [],
+        "entropy": [],
+        "eigenvalues": [],
+        "eigenvalues_L": [],
+        "norm": [],
+    }
+    data.update(
+        {
+            "purity": purity,
+            "entropy": entropy,
+            "norm": traced,
+            "eigenvalues": eigen_H,
+            "counts_d": counts,
+            "eigenvalues_L": eigen_L,
+            "KLdiv": relative_ent,
+        }
+    )
+    data_seed = {"seed": random_seed}
+
+    #######################
+    ModeL = create_Model(I, J, K, L, M)
+    base_folder = f"../DataBatchParallel/N_{ModeL.N}/loss_gain/S_{samples}/"
+    isExist = os.path.exists(base_folder)
+    if not isExist:
+        os.makedirs(base_folder)
+        print("The new directory is created!")
+
+    name_seed = os.path.join(
+        base_folder,
+        "TEST%s seed w%.3f_g%.3f_" % (delta, ModeL.w, ModeL.g)
+        + "N%i_gamma%.3f_beta%.3f" % (ModeL.N, ModeL.gamma, ModeL.beta)
+        + ".pickle",
+    )
+
+    name_lg = os.path.join(
+        base_folder,
+        "TEST%s w%.3f_g%.3f_" % (delta, ModeL.w, ModeL.g)
+        + "N%i_gamma%.3f_beta%.3f" % (ModeL.N, ModeL.gamma, ModeL.beta)
+        + ".pickle",
+    )
+
+    with open(name_lg, "wb") as handle:
+        pickle.dump(data, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+    with open(name_seed, "wb") as handle:
+        pickle.dump(data_seed, handle, protocol=pickle.HIGHEST_PROTOCOL)
+    print(
+        "d=%.1f S=%s, N=%s, w=%.3f, gamma=%.3f, g=%.3f, beta=%.3f"
+        % (delta, samples, ModeL.N, ModeL.w, ModeL.gamma, ModeL.g, ModeL.beta),
+        " process saved",
+    )
 
 
 #############################################################################
@@ -464,40 +553,40 @@ options: integration step setting
 # Time evolution of the system, linear
 
 
-def solve2(times, coupl_c, coupl_cm, c_fermi, N, H, norms, psi, options):
+# def solve2(times, coupl_c, coupl_cm, c_fermi, N, H, norms, psi, options):
 
-    # jump operators
-    J_op = [np.sqrt(coupl_c[i]) * c_fermi[i] for i in range(N // 2 + 1)]
-    J_opd = [np.sqrt(coupl_cm[i]) * c_fermi[i].dag() for i in range(N // 2 + 1)]
-    J = [J_op, J_opd]
-    J = [J[i][j] for i in range(len(J)) for j in range(2)]
-    # central fermion annihilation operator
-    d = [c_fermi[i] / norms[i] for i in range(N // 2 + 1)]
-    D = sum(d)
-    D_op = D.dag() * D
-    # collapse operators
-    # gain model
-    C_op = [J_op[i].dag() * J_op[i] for i in range(N // 2 + 1)]
-    # loss-gain model
-    C = [J[i].dag() * J[i] for i in range(len(J))]
+#     # jump operators
+#     J_op = [np.sqrt(coupl_c[i]) * c_fermi[i] for i in range(N // 2 + 1)]
+#     J_opd = [np.sqrt(coupl_cm[i]) * c_fermi[i].dag() for i in range(N // 2 + 1)]
+#     J = [J_op, J_opd]
+#     J = [J[i][j] for i in range(len(J)) for j in range(2)]
+#     # central fermion annihilation operator
+#     d = [c_fermi[i] / norms[i] for i in range(N // 2 + 1)]
+#     D = sum(d)
+#     D_op = D.dag() * D
+#     # collapse operators
+#     # gain model
+#     C_op = [J_op[i].dag() * J_op[i] for i in range(N // 2 + 1)]
+#     # loss-gain model
+#     C = [J[i].dag() * J[i] for i in range(len(J))]
 
-    # initial state
-    # psi_0 =qt.tensor(*[qt.basis(2,1) for j in range(N//2+1)])
+#     # initial state
+#     # psi_0 =qt.tensor(*[qt.basis(2,1) for j in range(N//2+1)])
 
-    # Lindbladian operator
-    # gain
-    #   Lindbladian_g = qt.liouvillian(H, C_op)
-    #   eps_Lg =Lindbladian_g.eigenenergies()
-    # loss-gain
-    Lindbladian_lg = qt.liouvillian(H, J)
-    eps_Llg = Lindbladian_lg.eigenenergies()
+#     # Lindbladian operator
+#     # gain
+#     #   Lindbladian_g = qt.liouvillian(H, C_op)
+#     #   eps_Lg =Lindbladian_g.eigenenergies()
+#     # loss-gain
+#     Lindbladian_lg = qt.liouvillian(H, J)
+#     eps_Llg = Lindbladian_lg.eigenenergies()
 
-    # evolve and calculate expectation values for each quasi-fermion,d
+#     # evolve and calculate expectation values for each quasi-fermion,d
 
-    out_d = qt.mesolve(H, psi, times, J, D_op, options=options)
-    rho = qt.mesolve(H, psi, times, J, [])
+#     out_d = qt.mesolve(H, psi, times, J, D_op, options=options)
+#     rho = qt.mesolve(H, psi, times, J, [])
 
-    return out_d, rho, eps_Llg, Lindbladian_lg
+#     return out_d, rho, eps_Llg, Lindbladian_lg
 
 
 #############################################################################
@@ -574,10 +663,31 @@ def batch_data(*args):
     return [L, H_d, D, epsilon]
 
 
+def PURITY(RHOT):
+    purity = []
+    for time in range(len(RHOT)):
+        # purity
+        purity.append((RHOT[time] ** 2).tr())
+        # entropy
+    purity = np.array(purity)
+    return purity
+
+
+def ENTROPY(RHOT):
+    entropy = []
+    for time in range(len(RHOT)):
+        # entropy
+        entropy.append(qt.entropy_vn(RHOT[time]))
+
+    entropy = np.array(entropy)
+    return entropy
+
+
 def eig_L(l):
     return l.eigenenergies()
 
 
+# @profile
 def EVO(*variables):
 
     seed, i, j, k, l, m = variables
@@ -592,6 +702,13 @@ def EVO(*variables):
     RND_data = batch_data(seed, Model, step, Op, times)
 
     l, h, d, eig = RND_data[0], RND_data[1], RND_data[2], RND_data[3]
+
+    logger.debug("🚀  Starting Liouvillian diagonalization")
+    egL = eig_L(l)
+    logger.debug("😎  Liouvillian diagonalization finished")
+    # free memory
+    del h
+    time.sleep(1)
     # min_eps = min(eig)
     # if min_eps < -0.1:
     #     h_g = h + abs(min_eps)
@@ -605,26 +722,23 @@ def EVO(*variables):
 
     # except Exception as e:
     #     print(gibbs, e)
-    logger.debug("🚀 Starting time evolution")
-    rho = qt.mesolve(l, psi, T, [], [], options=Op)
-    rhot = rho.states
-    logger.debug("😎 time evolution finished")
-    time.sleep(1)
-    logger.debug("🚀 Starting time evolution 2")
+
+    logger.debug("🚀 Starting time evolution ")
     result_d = qt.mesolve(l, psi, T, [], [d], options=Op)
     counts_d = result_d.expect
-    logger.debug("😎 time evolution 2 finished")
+    rhot = result_d.states
+    logger.debug("😎 time evolution  finished")
+    # free memory
+    del result_d
+    del l
+    time.sleep(1)
 
-    purity = []
-    entropy = []
-    for t in range(len(rhot)):
-        # purity
-        purity.append((rhot[t] ** 2).tr())
-        # entropy
-        entropy.append(qt.entropy_vn(rhot[t]))
-
-    purity = np.array(purity)
-    entropy = np.array(entropy)
+    logger.debug("🚀 Starting purity/entropy")
+    purity = PURITY(rhot)
+    entropy = ENTROPY(rhot)
+    # free memory
+    del rhot
+    logger.debug("😎  purity/entropy finished")
 
     # Trace distance data
 
@@ -633,12 +747,6 @@ def EVO(*variables):
     dt = []
     # rel_ent= [qt.entropy_relative(r,gibbs) for r in rhot]
     rel_ent = []
-
-    # Liouvillian eigenvalues (takes longer than density matrix evolution)
-    time.sleep(1)
-    logger.debug("🚀  Starting Liouvillian diagonalization")
-    egL = eig_L(l)
-    logger.debug("😎  Liouvillian diagonalization finished")
 
     return [purity, entropy, counts_d, dt, egL, eig, rel_ent]
 
@@ -654,11 +762,9 @@ def longest_decay(occ):
 
     return sample[0][0]
 
+    # Density matrix histogram
 
-# Density matrix histogram
-
-
-def matrix_histogram_complex(M, xlabels, ylabels, title, size, limits=None, ax=None):
+    # def matrix_histogram_complex(M, xlabels, ylabels, title, size, limits=None, ax=None):
     """
     Draw a histogram for the amplitudes of matrix M, using the argument of each element
     for coloring the bars, with the given x and y labels and title.
